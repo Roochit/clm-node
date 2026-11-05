@@ -28,7 +28,7 @@ npm run dev
 ### วิธีที่ 2: Clone ด้วยตัวเอง
 
 ```bash
-git clone [https://github.com/Roochit/chit-lite-mvc.git](https://github.com/Roochit/chit-lite-mvc.git)
+git clone https://github.com/Roochit/chit-lite-mvc.git
 cd chit-lite-mvc
 npm install
 npm run dev
