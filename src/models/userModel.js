@@ -1,11 +1,21 @@
-// src/models/User.js
+// src/models/userModel.js
 const db = require('../config/db');
 
 class User {
+    // ดึงข้อมูล
     static async getAll() {
-        // ใช้คำสั่ง SQL ดึงข้อมูลทั้งหมดจากตาราง users
         const [rows] = await db.query('SELECT * FROM users');
         return rows;
+    }
+
+    // เพิ่มข้อมูลใหม่
+    static async create(name, email) {
+        await db.query('INSERT INTO users (name, email) VALUES (?, ?)', [name, email]);
+    }
+
+    // ลบข้อมูลตาม ID
+    static async delete(id) {
+        await db.query('DELETE FROM users WHERE id = ?', [id]);
     }
 }
 
