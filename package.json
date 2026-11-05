@@ -7,6 +7,7 @@
     "watch:css": "tailwindcss -i ./src/tailwind.css -o ./public/css/tailwind.css --watch"
   },
   "dependencies": {
+    "dotenv": "^18.0.9",
     "ejs": "^7.0.2",
     "express": "^4.22.3",
     "mysql2": "^3.24.6"
