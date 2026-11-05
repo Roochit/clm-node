@@ -1,5 +1,8 @@
 # Chit Lite MVC
 
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D16.0.0-green.svg)](https://nodejs.org/)
+
+
 เทมเพลตเริ่มต้น (Starter Kit) สำหรับพัฒนาเว็บแอปพลิเคชันด้วย **Node.js + Express** 
 บนโครงสร้างสถาปัตยกรรม **MVC (Model-View-Controller)** 
 เรียบง่าย คลีน และพร้อมนำไปต่อยอดได้ทันที
