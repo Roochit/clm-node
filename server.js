@@ -1,21 +1,20 @@
+// server.js
 const express = require('express');
 const path = require('path');
 const app = express();
 
-// ตั้งค่า View Engine ให้ใช้ EJS
+// 1. ตั้งค่า View Engine เป็น EJS
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'src/views')); // ชี้ไปที่โฟลเดอร์ views
+app.set('views', path.join(__dirname, 'src/views'));
 
-// อนุญาตให้โฟลเดอร์ public ถูกเรียกใช้งานได้โดยตรง (สำหรับไฟล์ CSS, รูปภาพ)
+// 2. ตั้งค่าโฟลเดอร์ public (สำหรับ CSS ของ Tailwind)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// กำหนด Route พื้นฐาน (Controller/Route)
-app.get('/', (req, res) => {
-    // โยนตัวแปร title ไปให้หน้า index.ejs ใช้งาน
-    res.render('index', { title: 'Lite MVC + Tailwind' });
-});
+// 3. นำเข้าและใช้งาน Routes
+const webRoutes = require('./src/routes/web');
+app.use('/', webRoutes);
 
-// สั่งรันเซิร์ฟเวอร์ที่ Port 3000
+// 4. สั่งรันเซิร์ฟเวอร์
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);

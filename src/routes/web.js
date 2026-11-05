@@ -1,0 +1,9 @@
+// src/routes/web.js
+const express = require('express');
+const router = express.Router();
+const homeController = require('../controllers/HomeController');
+
+// เมื่อมีคนเข้าหน้าเว็บหลัก (/) ให้เรียกใช้ฟังก์ชัน index ใน HomeController
+router.get('/', homeController.index);
+
+module.exports = router;
