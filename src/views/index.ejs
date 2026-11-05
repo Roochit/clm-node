@@ -1,26 +1,54 @@
-<div class="mt-6 w-full max-w-lg mx-auto">
-    <h2 class="text-2xl font-bold text-gray-800 mb-4"><%= message %></h2>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex items-center justify-center p-4">
 
-    <!-- ฟอร์มเพิ่มข้อมูล -->
-    <form action="/add" method="POST" class="flex gap-2 mb-6">
-        <input type="text" name="name" placeholder="ชื่อ" required class="border border-gray-300 px-3 py-2 rounded-lg flex-1 outline-none focus:border-indigo-500">
-        <input type="email" name="email" placeholder="อีเมล" required class="border border-gray-300 px-3 py-2 rounded-lg flex-1 outline-none focus:border-indigo-500">
-        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">เพิ่ม</button>
-    </form>
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-sm border border-gray-200 p-8 text-center">
+        <!-- Logo / Icon -->
+        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+            🚀
+        </div>
 
-    <!-- รายชื่อผู้ใช้ -->
-    <div class="flex flex-col gap-3 text-left">
-        <% users.forEach(user => { %>
-            <div class="bg-gray-100 p-4 rounded-lg border border-gray-200 flex justify-between items-center shadow-sm">
-                <div>
-                    <p class="font-semibold text-gray-700"><%= user.name %></p>
-                    <p class="text-sm text-gray-500"><%= user.email %></p>
-                </div>
-                <!-- ปุ่มลบ (ใช้ฟอร์ม POST แทนลิงก์ GET เพื่อความปลอดภัย) -->
-                <form action="/delete/<%= user.id %>" method="POST" onsubmit="return confirm('ยืนยันการลบ?');">
-                    <button type="submit" class="bg-red-500 text-white text-sm px-3 py-1 rounded-md hover:bg-red-600 transition">ลบ</button>
-                </form>
+        <!-- Header -->
+        <span class="inline-block px-3 py-1 text-xs font-medium text-emerald-700 bg-emerald-50 rounded-full mb-3">
+            ● ระบบพร้อมใช้งาน
+        </span>
+        <h1 class="text-2xl font-bold text-gray-900 mb-2"><%= title %></h1>
+        <p class="text-sm text-gray-500 mb-6"><%= message %></p>
+
+        <!-- MVC Status (?) -->
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-left text-xs text-gray-600 space-y-2 font-mono">
+            <div class="font-semibold text-gray-700 font-sans pb-1 border-b border-gray-200">
+                จุดเชื่อมต่อโครงสร้าง (?)
             </div>
-        <% }) %>
+            <div class="flex justify-between">
+                <span>Route:</span>
+                <span class="text-indigo-600">src/routes/web.js</span>
+            </div>
+            <div class="flex justify-between">
+                <span>Controller:</span>
+                <span class="text-indigo-600">src/controllers/HomeController.js</span>
+            </div>
+            <div class="flex justify-between">
+                <span>Model:</span>
+                <span class="text-indigo-600">src/models/userModel.js</span>
+            </div>
+            <div class="flex justify-between">
+                <span>View:</span>
+                <span class="text-indigo-600">src/views/index.ejs</span>
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <p class="text-xs text-gray-400 mt-6">
+            แก้ไขหน้านี้ได้ที่ <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-600">src/views/index.ejs</code>
+        </p>
     </div>
-</div>
+
+</body>
+</html>
